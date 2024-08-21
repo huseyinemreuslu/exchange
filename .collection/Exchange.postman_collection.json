@@ -1,0 +1,522 @@
+{
+	"info": {
+		"_postman_id": "29acdec4-58f5-4378-8ba2-d20f5ffe96f3",
+		"name": "Exchange",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "18351010"
+	},
+	"item": [
+		{
+			"name": "Share",
+			"item": [
+				{
+					"name": "Create Share",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "7b8c862e-85a8-43c3-a4c1-81b49116dbf2"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token_here>",
+								"uuid": "5ac28dca-36c5-4c76-9926-cbbb518adcb6"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Apple Inc.\",\n  \"symbol\": \"APL\",\n  \"rate\": 150.00,\n  \"amount\": 33\n}"
+						},
+						"url": "http://localhost:3000/api/shares"
+					},
+					"response": [
+						{
+							"name": "BAD REQUEST",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <your_token_here>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Apple Inc.\",\n  \"symbol\": \"APL\",\n  \"rate\": 150.00\n}"
+								},
+								"url": "http://localhost:3000/api/shares"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-l1r2e1XAIr4AuK1x3s162GwTq9U\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 20 Aug 2024 23:22:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"BAD_REQUEST_ERROR\",\n    \"message\": \"Invalid share data\"\n}"
+						},
+						{
+							"name": "Create Share",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <your_token_here>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Apple Inc.\",\n  \"symbol\": \"APL\",\n  \"rate\": 150.00,\n  \"amount\": 33\n}"
+								},
+								"url": "http://localhost:3000/api/shares"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "201"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c9-gbJ0AkM8eEjCU5mLfXvCzeqxfdo\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 21 Aug 2024 00:05:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"90ed8bcd-dc66-4632-90db-07d0c0b22c0d\",\n    \"usedAmount\": 0,\n    \"name\": \"Apple Inc.\",\n    \"symbol\": \"APL\",\n    \"rate\": \"150.00\",\n    \"amount\": 33,\n    \"updatedAt\": \"2024-08-21T00:05:12.783Z\",\n    \"createdAt\": \"2024-08-21T00:05:12.783Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Share",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "a70a8d01-401b-48bf-8ada-4e682f05b16a"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token_here>",
+								"uuid": "1baa6f6c-cf4e-4ee3-88f1-c6a69cad7d38"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rate\": 160.00\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/shares/:shareId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"shares",
+								":shareId"
+							],
+							"variable": [
+								{
+									"key": "shareId",
+									"value": "22f7b1c3-8ae5-4d59-b6ec-395842f2fe4d",
+									"uuid": "5ba15f8e-5f53-482f-9805-3046f4fde908"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Share",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token_here>",
+								"uuid": "b630b55f-3251-4273-95b7-29acdd30c7c5"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/shares/:shareId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"shares",
+								":shareId"
+							],
+							"variable": [
+								{
+									"key": "shareId",
+									"value": "22f7b1c3-8ae5-4d59-b6ec-395842f2fe4d",
+									"uuid": "86e0a731-bcc8-4ad9-948d-8bef33d36e61"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Share",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <your_token_here>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/shares/:shareId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"shares",
+										":shareId"
+									],
+									"variable": [
+										{
+											"key": "shareId",
+											"value": "22f7b1c3-8ae5-4d59-b6ec-395842f2fe4d"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "186"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ba-2RrSPKHZDGilJOYg9yzVlJhASuo\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 20 Aug 2024 23:24:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"22f7b1c3-8ae5-4d59-b6ec-395842f2fe4d\",\n    \"name\": \"Apple Inc.\",\n    \"symbol\": \"APL\",\n    \"amount\": 33,\n    \"rate\": \"150.00\",\n    \"createdAt\": \"2024-08-20T23:24:00.917Z\",\n    \"updatedAt\": \"2024-08-20T23:24:00.917Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Share",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <your_token_here>",
+								"uuid": "dfd1b517-a11f-4590-aff3-512200decf2e"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/shares/:shareId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"shares",
+								":shareId"
+							],
+							"variable": [
+								{
+									"key": "shareId"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trade",
+			"item": [
+				{
+					"name": "Buy Shares",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "39ba4440-debd-4751-98be-91c3fcd9d862"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"uuid": "a8bd0ca5-f9fd-47b3-a784-59b5ac5aa9fe"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"shareId\": \"44474c16-55a3-482f-a2b6-ab13bdd7162a\",\n  \"amount\": 10\n}"
+						},
+						"url": "{{apiBaseUrl}}/trades/buy"
+					},
+					"response": []
+				},
+				{
+					"name": "Sell Shares",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "9c0e6ce6-91f7-4ec3-a629-0ca6c734aba9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"uuid": "6210839c-ccc9-47e6-bac3-96207bce4599"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"shareId\": \"44474c16-55a3-482f-a2b6-ab13bdd7162a\",\n  \"amount\": 2222\n}"
+						},
+						"url": "{{apiBaseUrl}}/trades/sell"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "5604202e-c3f2-4265-ac50-6947005fb0e1"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"password\": \"password123\",\n    \"roles\": [\"user\"]\n}"
+						},
+						"url": "{{apiBaseUrl}}/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "fe8327df-de19-4a33-a2ee-cdd32e51d3d6"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"Alice\",\n        \"email\": \"alice@example.com\",\n        \"password\": \"password123\",\n        \"roles\": [\"user\"]\n    },\n    {\n        \"name\": \"Bob\",\n        \"email\": \"bob@example.com\",\n        \"password\": \"password123\",\n        \"roles\": [\"user\"]\n    }\n]"
+						},
+						"url": "{{apiBaseUrl}}/users/bulk"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"uuid": "ad3bfecc-a4c4-4f10-b221-87a4cb3a313e"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Updated\",\n    \"email\": \"john.updated@example.com\"\n}"
+						},
+						"url": "{{apiBaseUrl}}/users/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{apiBaseUrl}}/users/:userId",
+							"host": [
+								"{{apiBaseUrl}}"
+							],
+							"path": [
+								"users",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "0",
+									"uuid": "e6d6a56b-dcd5-40c0-b2f0-37f038efaafa"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sign In",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"uuid": "2a863cf6-c30e-479c-b94c-6ca47c6b2b7d"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"adminpass\"\n}"
+				},
+				"url": "{{apiBaseUrl}}/users/sign-in"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc4M2I5ZTU3LWVhZTYtNGQyMi1hYmVkLWJmYjNiZjA5ZjI5ZCIsInJvbGVzIjpbImFkbWluIl0sInBlcm1pc3Npb25zIjpbIlVTRVJfQ1JFQVRFIiwiVVNFUl9VUERBVEUiLCJVU0VSX0RFTEVURSIsIk1BTkFHRV9VU0VSIiwiUE9SVEZPTElPX0NSRUFURSIsIlBPUlRGT0xJT19VUERBVEUiLCJQT1JURk9MSU9fREVMRVRFIiwiUE9SVEZPTElPX1ZJRVciLCJTSEFSRV9DUkVBVEUiLCJTSEFSRV9VUERBVEUiLCJTSEFSRV9ERUxFVEUiLCJTSEFSRV9WSUVXIiwiVFJBREVfQlVZIiwiVFJBREVfU0VMTCJdLCJpYXQiOjE3MjQyMDExMTYsImV4cCI6MTcyNDIwNDcxNn0.jph9PxE_7dsHCMf3xei6nxuSmmfJX0V21Y5ZYCIJpNU"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apiBaseUrl",
+			"value": "http://localhost:3000/api",
+			"type": "string"
+		}
+	]
+}
